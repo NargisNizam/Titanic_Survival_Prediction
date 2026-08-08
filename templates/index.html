@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Titanic Survival Prediction</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="ship-icon">🚢</div>
+
+            <h1>Titanic Survival Prediction</h1>
+
+            <p>
+                Machine Learning powered system to predict passenger survival.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Passenger Information</h2>
+
+            <p class="description">
+                Enter the passenger details below to get a survival prediction.
+            </p>
+
+
+            <form action="/predict" method="post">
+
+                <div class="form-grid">
+
+
+                    <!-- Passenger ID -->
+                    <div class="input-group">
+
+                        <label for="Passengerid">
+                            Passenger ID
+                        </label>
+
+                        <input
+                            type="number"
+                            id="Passengerid"
+                            name="Passengerid"
+                            placeholder="Enter passenger ID"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Age -->
+                    <div class="input-group">
+
+                        <label for="Age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="Age"
+                            name="Age"
+                            placeholder="Enter age"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Fare -->
+                    <div class="input-group">
+
+                        <label for="Fare">
+                            Fare
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="Fare"
+                            name="Fare"
+                            placeholder="Enter ticket fare"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Sex -->
+                    <div class="input-group">
+
+                        <label for="Sex">
+                            Gender
+                        </label>
+
+                        <select id="Sex" name="Sex" required>
+
+                            <option value="" disabled selected>
+                                Select gender
+                            </option>
+
+                            <option value="0">
+                                Female
+                            </option>
+
+                            <option value="1">
+                                Male
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Siblings / Spouses -->
+                    <div class="input-group">
+
+                        <label for="sibsp">
+                            Siblings / Spouses
+                        </label>
+
+                        <input
+                            type="number"
+                            id="sibsp"
+                            name="sibsp"
+                            min="0"
+                            placeholder="Enter number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Parents / Children -->
+                    <div class="input-group">
+
+                        <label for="Parch">
+                            Parents / Children
+                        </label>
+
+                        <input
+                            type="number"
+                            id="Parch"
+                            name="Parch"
+                            min="0"
+                            placeholder="Enter number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Passenger Class -->
+                    <div class="input-group">
+
+                        <label for="Pclass">
+                            Passenger Class
+                        </label>
+
+                        <select id="Pclass" name="Pclass" required>
+
+                            <option value="" disabled selected>
+                                Select class
+                            </option>
+
+                            <option value="1">
+                                First Class
+                            </option>
+
+                            <option value="2">
+                                Second Class
+                            </option>
+
+                            <option value="3">
+                                Third Class
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Embarked -->
+                    <div class="input-group">
+
+                        <label for="Embarked">
+                            Embarked From
+                        </label>
+
+                        <select id="Embarked" name="Embarked" required>
+
+                            <option value="" disabled selected>
+                                Select port
+                            </option>
+
+                            <option value="0">
+                                Southampton
+                            </option>
+
+                            <option value="1">
+                                Cherbourg
+                            </option>
+
+                            <option value="2">
+                                Queenstown
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="predict-btn">
+
+                    🚢 Predict Survival
+
+                </button>
+
+            </form>
+
+
+            {% if prediction %}
+
+            <div class="result">
+
+                <h2>{{ prediction }}</h2>
+
+                <p>
+                    Prediction generated by the Machine Learning model.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="info-section">
+
+            <div class="info-card">
+
+                <span>🤖</span>
+
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Random Forest Classifier
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>⚡</span>
+
+                <h3>Fast Prediction</h3>
+
+                <p>
+                    Powered by FastAPI
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>📊</span>
+
+                <h3>Data Driven</h3>
+
+                <p>
+                    Titanic Dataset
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <footer>
+
+            Titanic Survival Prediction System
+
+            <br>
+
+            Built with Python, FastAPI & Machine Learning
+
+        </footer>
+
+    </div>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
